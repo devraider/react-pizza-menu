@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import "./index.css";
 function Header() {
-  return <h1>React Pizza Company</h1>;
+  return (
+    <h1 style={{ color: "red", fontSize: "32px", textTransform: "uppercase" }}>
+      React Pizza Company
+    </h1>
+  );
 }
 function Footer() {
   const hour = new Date().getHours();
@@ -11,7 +15,7 @@ function Footer() {
 
   return (
     <footer>
-      We're currently {openHour <= hour <= closeHour ? "open" : "closed"}
+      We're currently {openHour <= hour <= closeHour ? "open" : "closed"}.
     </footer>
   );
 }
@@ -19,7 +23,7 @@ function Footer() {
 function Menu() {
   return (
     <div>
-      <h2>Our menu</h2>;
+      <h2>Our menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
@@ -40,8 +44,9 @@ function Pizza() {
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
+      <Menu />
       <Footer />
     </div>
   );
