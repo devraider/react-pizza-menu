@@ -29,10 +29,10 @@ function Footer() {
   );
 }
 
-function Order(props) {
+function Order({ openHour, closeHour }) {
   return (
     <div className="order">
-      <p>We're currently open till {props.closeHour}:00.</p>
+      <p>We're currently open till {closeHour}:00.</p>
       <button className="btn">Order</button>
     </div>
   );
@@ -43,11 +43,17 @@ function Menu() {
     <main className="menu">
       <h2>Our menu</h2>
       {pizzaData.length > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza key={pizza.name} {...pizza} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. {pizzaData.length} creative dishes to
+            choose from. All from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza key={pizza.name} pizzaObj={pizza} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We're sorry! No pizza available right now!</p>
       )}
@@ -55,15 +61,15 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   return (
     <li>
       <div className="pizza">
-        <img src={props.photoName} alt={props.name} />
+        <img src={pizzaObj.photoName} alt={pizzaObj.name} />
         <div>
-          <h3>{props.name}</h3>
-          <p>{props.ingredients}</p>
-          <span>{props.price}</span>
+          <h3>{pizzaObj.name}</h3>
+          <p>{pizzaObj.ingredients}</p>
+          <span>{pizzaObj.price}</span>
         </div>
       </div>
     </li>
