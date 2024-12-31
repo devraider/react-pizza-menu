@@ -1,6 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+function Header() {
+  return <h1>React Pizza Company</h1>;
+}
+function Footer() {
+  return React.createElement("footer", null, "Under development currently");
+}
+
+function Menu() {
+  return <h1>Menu</h1>;
+}
+
 function Pizza() {
   return (
     <div>
@@ -14,8 +25,9 @@ function Pizza() {
 function App() {
   return (
     <div>
-      <h1>Hi React!</h1>
+      <Header />
       <Pizza />
+      <Footer />
     </div>
   );
 }
