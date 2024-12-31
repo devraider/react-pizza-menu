@@ -14,16 +14,27 @@ function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
   const closeHour = 22;
+  const isOpen = openHour <= hour <= closeHour;
 
   return (
     <footer className="footer">
-      <div className="order">
+      {isOpen ? (
+        <Order openHour={openHour} closeHour={closeHour} />
+      ) : (
         <p>
-          We're currently {openHour <= hour <= closeHour ? "open" : "closed"}.
+          You are welcome to order between {openHour}:00 and {closeHour}:00!
         </p>
-        <button className="btn">Order</button>
-      </div>
+      )}
     </footer>
+  );
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>We're currently open till {props.closeHour}:00.</p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
