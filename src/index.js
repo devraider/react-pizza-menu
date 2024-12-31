@@ -5,11 +5,27 @@ function Header() {
   return <h1>React Pizza Company</h1>;
 }
 function Footer() {
-  return React.createElement("footer", null, "Under development currently");
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+
+  return (
+    <footer>
+      We're currently {openHour <= hour <= closeHour ? "open" : "closed"}
+    </footer>
+  );
 }
 
 function Menu() {
-  return <h1>Menu</h1>;
+  return (
+    <div>
+      <h2>Our menu</h2>;
+      <Pizza />
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
 }
 
 function Pizza() {
@@ -26,7 +42,6 @@ function App() {
   return (
     <div>
       <Header />
-      <Pizza />
       <Footer />
     </div>
   );
