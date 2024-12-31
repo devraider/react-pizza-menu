@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 function Header() {
   return (
-    <h1 style={{ color: "red", fontSize: "32px", textTransform: "uppercase" }}>
-      React Pizza Company
-    </h1>
+    <header className="header">
+      <h1>React Pizza Company</h1>
+    </header>
   );
 }
 function Footer() {
@@ -14,7 +14,7 @@ function Footer() {
   const closeHour = 22;
 
   return (
-    <footer>
+    <footer className="footer">
       We're currently {openHour <= hour <= closeHour ? "open" : "closed"}.
     </footer>
   );
@@ -22,22 +22,24 @@ function Footer() {
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-    </div>
+      <Pizza
+        name="Spinachi"
+        ingredients="Etc"
+        photoSrc="pizzas/focaccia.jpg"
+        price="1"
+      />
+    </main>
   );
 }
 
-function Pizza() {
+function Pizza(props) {
   return (
     <div>
-      <h2>Focaccia</h2>
-      <img src="pizzas/focaccia.jpg" alt="Foccacia" />
-      <p>Bread with italian olive oil and rosemary</p>
+      <h3>{props.name}</h3>
+      <img src={props.photoSrc} alt={props.name} />
+      <p>{props.ingredients}</p>
     </div>
   );
 }
