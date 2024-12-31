@@ -43,5 +43,6 @@ npm run build
 
 ## Credits
 
-- 🧑‍🏫 [Jonas Schmedtmann](https://github.com/jonasschmedtmann)
+- [**Facebook React Team**](https://github.com/facebook/react) for great documentation: [Learn React from Docs](https://react.dev/learn)
+- 🧑‍🏫 [**Jonas Schmedtmann**](https://github.com/jonasschmedtmann)
 - 🎓 [The Ultimate React Course 2024: React, Next.js, Redux & More](https://www.udemy.com/course/the-ultimate-react-course/)
