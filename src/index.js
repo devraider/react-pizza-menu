@@ -10,6 +10,7 @@ function Header() {
     </header>
   );
 }
+
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
@@ -63,14 +64,12 @@ function Menu() {
 
 function Pizza({ pizzaObj }) {
   return (
-    <li>
-      <div className="pizza">
-        <img src={pizzaObj.photoName} alt={pizzaObj.name} />
-        <div>
-          <h3>{pizzaObj.name}</h3>
-          <p>{pizzaObj.ingredients}</p>
-          <span>{pizzaObj.price}</span>
-        </div>
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "Sold out" : pizzaObj.price}</span>
       </div>
     </li>
   );
