@@ -31,11 +31,15 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza key={pizza.name} {...pizza} />
-        ))}
-      </ul>
+      {pizzaData.length > 0 ? (
+        <ul className="pizzas">
+          {pizzaData.map((pizza) => (
+            <Pizza key={pizza.name} {...pizza} />
+          ))}
+        </ul>
+      ) : (
+        <p>We're sorry! No pizza available right now!</p>
+      )}
     </main>
   );
 }
