@@ -2,7 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 function Pizza() {
-  return <h2>Pizza component</h2>;
+  return (
+    <div>
+      <h2>Focaccia</h2>
+      <img src="pizzas/focaccia.jpg" alt="Foccacia" />
+      <p>Bread with italian olive oil and rosemary</p>
+    </div>
+  );
 }
 
 function App() {
