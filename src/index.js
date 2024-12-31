@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { pizzaData } from "./data.js";
+
 function Header() {
   return (
     <header className="header">
@@ -15,7 +17,12 @@ function Footer() {
 
   return (
     <footer className="footer">
-      We're currently {openHour <= hour <= closeHour ? "open" : "closed"}.
+      <div className="order">
+        <p>
+          We're currently {openHour <= hour <= closeHour ? "open" : "closed"}.
+        </p>
+        <button className="btn">Order</button>
+      </div>
     </footer>
   );
 }
@@ -24,23 +31,27 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza
-        name="Spinachi"
-        ingredients="Etc"
-        photoSrc="pizzas/focaccia.jpg"
-        price="1"
-      />
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza key={pizza.name} {...pizza} />
+        ))}
+      </ul>
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div>
-      <h3>{props.name}</h3>
-      <img src={props.photoSrc} alt={props.name} />
-      <p>{props.ingredients}</p>
-    </div>
+    <li>
+      <div className="pizza">
+        <img src={props.photoName} alt={props.name} />
+        <div>
+          <h3>{props.name}</h3>
+          <p>{props.ingredients}</p>
+          <span>{props.price}</span>
+        </div>
+      </div>
+    </li>
   );
 }
 
