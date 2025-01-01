@@ -14,8 +14,8 @@ function Header() {
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
-  const closeHour = 22;
-  const isOpen = openHour <= hour <= closeHour;
+  const closeHour = 21;
+  const isOpen = openHour <= hour && hour < closeHour;
 
   return (
     <footer className="footer">
